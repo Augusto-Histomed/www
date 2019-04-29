@@ -1,0 +1,79 @@
+
+.contenedor{
+background-image: url(img/APP1.jpg)
+}
+
+
+.banderaingles{
+position:absolute;
+top:520px;
+right:;
+bottom:200px;
+left:220px; 
+}
+
+.banderaespanol{
+position: absolute;
+top:520px;
+right: 15px;    
+left:100px;
+}
+
+.mapa{
+position: absolute;
+top:80px;
+height:500px;
+width:600px;
+}
+
+.btndescubrearauco{
+position: absolute;
+left:150px;  
+top:600px;
+}
+
+.mapa2{
+position: absolute;
+top:80px;
+height:500px;
+width:600px;
+}
+
+.slider {
+	width: 95%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.slider ul {
+	display: flex;
+	padding: 0;
+	width: 400%;
+	
+	animation: cambio 20s infinite alternate linear;
+}
+
+.slider li {
+	width: 100%;
+	list-style: none;
+}
+
+.slider img {
+	width: 100%;
+}
+
+@keyframes cambio {
+	0% {margin-left: 0;}
+	20% {margin-left: 0;}
+	
+	25% {margin-left: -100%;}
+	45% {margin-left: -100%;}
+	
+	50% {margin-left: -200%;}
+	70% {margin-left: -200%;}
+	
+	75% {margin-left: -300%;}
+	100% {margin-left: -300%;}
+}
+
+
