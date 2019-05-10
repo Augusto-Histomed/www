@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html>
+    <head >
+    <meta charset="UTF-8">
+    <!--  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Arauco On Tour</title>
+        
+        
+        <script type="text/javascript">
+          function videos(){
+           document.body.style.backgroundImage="url('img/fondovideos.png')";
+           document.getElementById('fcliente').style.visibility ='hidden'
+                           }
+        </script>
+        
+        
+        <script type="text/javascript">
+          function evaluacion(){
+           document.body.style.backgroundImage="url('img/fondoevaluacion.png')";
+           document.getElementById('fcliente').style.visibility ='hidden'
+                               }
+        </script>
+        
+        
+        <script type="text/javascript">
+         function datos(){
+          document.getElementById('fcliente').style.visibility ='visible'
+          document.body.style.backgroundImage="url('img/fondodatos.png')";
+                         }
+        </script>
+        
+        
+        <script type="text/javascript">
+         function getParameterByName(name) {
+          name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+           var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+             return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+                                           }
+            
+        </script>
+        
+        
+       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoIf0gHL4RNkkVCiZO4Cm3D8F2X9Etvjw&callback=initMap"></script>
+        
+     
+       <script language="javascript">
+         var ID = getParameterByName('ID');    
+          $.getJSON("http://www.arauco-ontour.cl/admin/APPficha.php?id="+ID, function(result)
+                  {       
+           $.each
+                    (
+            result, function(i, field) 
+             {
+             var cli_id            =  field.cli_id;
+             var cli_nombre        =  field.cli_nombre;
+             var cli_nombre_ingles =  field.cli_nombre_ingles;
+             var cli_calle         =  field.cli_calle;
+             var cli_numero        =  field.cli_numero;
+             var cli_comuna        =  field.cli_comuna;
+             var cli_movil         =  field.cli_movil;
+             var cli_correo        =  field.cli_correo;
+             var cli_latitud       =  field.cli_latitud;
+             var cli_longitud      =  field.cli_longitud;
+             var cli_ruta_logo     =  field.cli_ruta_logo;
+             var cat_id            =  field.cat_id;
+             var cat_nombre        =  field.cat_nombre;
+             var indice = i; 
+                        
+                document.fcliente.nombre.value = cli_nombre;
+                document.fcliente.direccion.value = cli_calle + " " + cli_numero + " " + cli_comuna;
+                document.fcliente.correo.value = cli_correo;
+                document.fcliente.movil.value = cli_movil;
+                document.fcliente.logo.src = cli_ruta_logo;
+                                   
+             }
+                    );
+                   });
+        </script>
+          
+         
+    </head>
+
+      <style>
+          
+        body{ 
+         background-image:url(img/fondodatos.png);
+         background-size:cover;
+         background-repeat: no-repeat;
+            } 
+          
+      </style>
+    
+    
+<body>
+    
+    <img src="logo">
+   
+   <a href="javascript: videos()"><input  id="botonvideos" type="submit" style="color: transparent; background-color: transparent; border-color: transparent; cursor: default;"></a>
+    
+    
+   <a href="javascript: evaluacion()"><input  id="botonevaluacion" type="submit" style="color: transparent; background-color: transparent; border-color: transparent; cursor: default;"></a>
+    
+    
+   <a href="javascript: datos()"><input  id="botondatos" type="submit" style="color: transparent; background-color: transparent; border-color: transparent; cursor: default;">
+    </a>
+    
+    
+    
+
+    
+<form name="fcliente" id="fcliente" >
+  <table>
+      <tr>
+          <td>Nombre:</td> <td> <input   id="nombre" name="nombre"  style="  background-color: transparent; border-color: transparent ; width: 500px " disabled  ></td>
+      </tr>
+      <tr>
+          <td>Dirección:</td> <td><input id="direccion" name="direccion" style="background-color: transparent; border-color: transparent; width: 500px " disabled></td>
+      </tr>
+      
+      <tr>
+          <td>Correo:</td> <td> <input id="correo" name="correo"style="background-color: transparent; border-color: transparent; width: 500px " disabled> </td>
+      </tr>
+      
+      <tr>
+          <td>Telefono:</td> <td> <input id="movil" name="movil"style="background-color: transparent; border-color: transparent; width: 500px " disabled> </td>
+          
+      </tr>
+ </table>
+</form>
+        
+         <form>
+            
+             <input type="button" value="volver atrás" name="volver atrás2" onclick="history.back()" style="color: transparent; background-color: transparent; border-color: transparent; cursor: default; width:50px ; height: 40px"/>
+                            
+         </form>
+    
+            <style>
+ 
+              form{ width:250px; margin:0 auto; padding:10px;  border: 1px solid #d9d9d9;}
+                
+              form p, form input[type = "submit"]{text-align:center; font-size:20px;}
+                
+              input[type = "radio"]{ display:none;/*position: absolute;top: -1000em;*/}
+                
+              label{ color:grey;}
+
+              .clasificacion{
+                  
+              position: absolute;   
+              direction: rtl;  
+              unicode-bidi: bidi-override;
+              top: 460px;
+              left: 140px;
+              text-align: center;
+                  
+                            }
+
+              label:hover,
+              label:hover ~ label{color:orange;}
+              input[type = "radio"]:checked ~ label{color:orange;}
+
+            </style>
+ 
+    
+     <form>
+
+       <p class="clasificacion"  >
+    <input id="radio1" type="radio" name="estrellas" value="5"><!--
+    --><label for="radio1">★</label><!--
+    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+    --><label for="radio2">★</label><!--
+    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+    --><label for="radio3">★</label><!--
+    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+    --><label for="radio4">★</label><!--
+    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+    --><label for="radio5">★</label>
+        </p>
+         
+    </form>
+    
+
+    
+
+
+        
+    </body>
