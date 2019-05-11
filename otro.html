@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Device Properties Example</title>
-
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8">
-
-    // Wait for device API libraries to load
-    //
+<head>
+<title>Detectando nuestro hardware</title>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8">
     document.addEventListener("deviceready", onDeviceReady, false);
-
-    // device APIs are available
-    //
     function onDeviceReady() {
-        var element = document.getElementById('deviceProperties');
-        element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
-                            'Device Cordova: '  + device.cordova  + '<br />' +
-                            'Device Platform: ' + device.platform + '<br />' +
-                            'Device UUID: '     + device.uuid     + '<br />' +
-                            'Device Version: '  + device.version  + '<br />';
-    }
+    var miDispositivo = document.getElementById(‘informaciondeldispositivo’);
+    var titulo = ‘<div align="center"><h2>Informaci&oacute;n del dispositivo</h2></div>’;
+    var phonegapData = ‘<div align="center"><h2>Versi&oacute;n de Phonegap</h2></div>’;
+        miDispositivo.innerHTML = ‘<strong>’ + titulo + ‘</strong><br/>’ +
+        » + ‘<br />’ +
+        ‘<strong>Equipo:</strong> ‘ + device.model + ‘<br/>’ +
+        » + ‘<br />’ +
+        ‘<strong>S.O.:</strong> ‘ + device.platform + ‘<br/>’ +
+        » + ‘<br />’ +
+        ‘<strong>Versi&oacute;n:</strong> ‘ + device.version + ‘<br />’;
+        » + ‘<br />’;
 
-    </script>
-  </head>
-  <body>
-    <p id="deviceProperties">Loading device properties...</p>
-  </body>
+    var miPhonegap = document.getElementById(‘informacionadicional’);
+        miPhonegap.innerHTML = ‘<strong>’ + phonegapData + ‘</strong><br/>’ +
+        » + ‘<br />’ +
+        ‘<strong>Phonegap:</strong> ‘ + device.phonegap + ‘<br/>’ +
+        » + ‘<br />’ +
+        ‘<strong>UUID:</strong> ‘ + device.uuid + ‘<br/>’;
+    }
+</script>
+
+</head>
+<body>
+<p id="informaciondeldispositivo">Cargando informaci&oacute;n…</p>
+<br />
+<p id="informacionadicional">Cargando informaci&oacute;n…</p> </body>
 </html>
